@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Card  from "./componets/Card";
+import movies from "./componets/Data";
+import Movies from "./Data/index";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+     return (
+        <div>
+        
+         {Movies.map((currentMovie) => {
+            console.log(currentMovie);
+            return (
+            <Card 
+            movieTitle={currentMovie.original_title}
+            sinopse={currentMovie.overview}
+            img={`https://image.tmdb.org/t/p/w500/${currentMovie.backdrop_path}`} />
+            );
+         })}
+         
+         
+        </div>
+
+     );
+  
 }
 
-export default App;
+export default App();
